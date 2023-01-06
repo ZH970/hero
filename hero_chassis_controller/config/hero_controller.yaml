@@ -1,0 +1,19 @@
+controller:
+  hero_chassis_controller:
+    type: hero_chassis_controller/HeroChassisController
+    front_left:
+      joint: front_left_joint_
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+    front_right:
+      joint: front_right_joint_
+      pid: { p: 100.0, i: 0.01, d: 10.0 }
+    back_left:
+      joint: back_left_joint_
+      pid: { p: 100.0, i: 0.01, d: 10.0 }
+    back_right:
+      joint: back_right_joint_
+      pid: { p: 100.0, i: 0.01, d: 10.0 }
+
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50

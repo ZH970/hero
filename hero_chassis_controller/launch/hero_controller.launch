@@ -1,0 +1,18 @@
+<launch>
+
+    <rosparam file="$(find hero_chassis_controller)/config/hero_controller.yaml" command="load"></rosparam>
+
+    <node name="hero_chassis_controller" pkg="hero_chassis_controller" type="spawner" ></node>
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" args="
+          controller/hero_chassis_controller
+          controller/joint_state_controller
+    "/>
+    
+    <!-- convert joint states to TF transforms for rviz, etc -->
+    <node name="hero_state_publisher" pkg="hero_state_publisher" type="hero_state_publisher"
+          respawn="false" output="screen">
+        <remap from="/joint_states" to="/controller/joint_states" />
+    </node>
+</launch>
