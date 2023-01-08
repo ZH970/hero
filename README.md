@@ -1,10 +1,80 @@
+
+
+# ***Overview***
+
+This id controller for the exam of team
+
+Dependences:
+
+`<depend>roscpp</depend>`
+  `<depend>roslint</depend>`
+  `<depend>controller_interface</depend>`
+  `<depend>hardware_interface</depend>`
+  `<depend>tf</depend>`
+  `<depend>control_toolbox</depend>`
+  `<depend>gazebo_msgs</depend>`
+  `<depend>nav_msgs</depend>`
+  `<depend>pluginlib</depend>`
+
+
+
+# ***Building***
+
+To build from source, clone the latest version from this repository into your catkin workspace and compile the package using
+
+`cd catkin_workspace/src`
+
+`git clone https://github.com/ZH970/hero.git`
+
+`rosdep install --from-paths . --ignore-src`
+
+`catkin build`
+
+# ***Usage***
+
+`roslaunch hero_chassis_controller hero_chassis_controller.launch`
+
+# ***Config***
+
+- **hero_chassis_controller.yaml**  Params of hero_chassis_controller and joint_state_controller.
+
+# ***Code style***
+
+C++ Google code style
+
+Auto formating by .clang-format file
+
+Reference:
+
+https://google.github.io/styleguide/cppguide.html
+
+https://github.com/kehanXue/google-style-clang-format
+
+# ***rm_gazebo***
+
+![Image](rm_gazebo.jpg)
+
+
+
+# ***Solution***
+
+Accept the msg geometry_msgs from /gazebo/get_model_state
+
+It is regarded as the speed command under the chassis coordinate system, and the desired speed of each wheel is calculated
+
+# ***PID***
+
+err: Difference between expected speed and actual speed
+
+Using PID to decrease err, than add to the speed, decomposite the motor speed.
+
+
+
 # ***pluginlib***
 
-
+Plugin:   **effort_controllers_plugins** in controller_interface
 
 **讲述插件实现流程**
-
-Plugin: **effort_controllers_plugins** in controller_interface
 
 
 ## Base class
