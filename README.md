@@ -56,6 +56,10 @@ https://github.com/kehanXue/google-style-clang-format
 
 
 
+# ***path***
+
+![Image](Path.jpg)
+
 # ***Solution***
 
 Accept the msg geometry_msgs from /gazebo/get_model_state
@@ -63,6 +67,10 @@ Accept the msg geometry_msgs from /gazebo/get_model_state
 It is regarded as the speed command under the chassis coordinate system, and the desired speed of each wheel is calculated
 
 # ***PID***
+
+w: >0:Turn counterclockwise    (Default counter clockwise at 1 unit speed)
+
+​    <0: Turn clockwise
 
 err: Difference between expected speed and actual speed
 
